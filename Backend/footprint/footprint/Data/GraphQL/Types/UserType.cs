@@ -13,6 +13,8 @@ namespace footprint.Data.GraphQL.Types
         {
             Field(t => t.Email);
             Field(t => t.Username);
+            Field(t => t.Password);
+            Field(t => t.UID);
         }
     }
 }

@@ -33,5 +33,10 @@ namespace footprint.Repository
         {
             return _dbContext.Users;
         }
+
+        public IEnumerable<User> GetUserByEmail(string Email)
+        {
+            return _dbContext.Users.Where(i => i.Email == Email);
+        }
     }
 }

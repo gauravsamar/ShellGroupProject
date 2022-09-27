@@ -26,7 +26,7 @@ namespace footprint.Data.GraphQL
                 var transportFootPrint = context.GetArgument<TransportFootPrint>("transport");
                 return transportFootPrintRepository.AddTransportFootprint(transportFootPrint);
             });
-            Field<UserType>(
+            Field<DomesticType>(
             "createDomestic",
             arguments: new QueryArguments(new QueryArgument<NonNullGraphType<DomesticInputType>> { Name = "domestic" }),
             resolve: context =>
