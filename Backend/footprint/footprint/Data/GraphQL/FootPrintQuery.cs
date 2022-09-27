@@ -29,6 +29,16 @@ namespace footprint.Data.GraphQL
                }
 
                );
+            Field<ListGraphType<DomesticType>>(
+               "domesticFootprintByYear",
+               arguments: new QueryArguments(new QueryArgument<NonNullGraphType<IntGraphType>> { Name = "year" }),
+               resolve: context =>
+               {
+                   var year = context.GetArgument<int>("year");
+                   return DomesticRepository.GetDomesticFootprintByYear(year);
+               }
+
+               );
             Field<ListGraphType<TransportType>>(
                 "transport",
                 resolve: context => transportRepository.GetTransportFootPrints()
@@ -44,6 +54,17 @@ namespace footprint.Data.GraphQL
                }
 
                );
+            Field<ListGraphType<TransportType>>(
+               "transportFootprintByYear",
+               arguments: new QueryArguments(new QueryArgument<NonNullGraphType<IntGraphType>> { Name = "year" }),
+               resolve: context =>
+               {
+                   var year = context.GetArgument<int>("year");
+                   return transportRepository.GetTransportFootprintByYear(year);
+               }
+
+               );
+
             Field<ListGraphType<UserType>>(
                "userByEmail",
                arguments: new QueryArguments(new QueryArgument<NonNullGraphType<StringGraphType>> { Name = "email" }),

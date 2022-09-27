@@ -26,6 +26,10 @@ namespace footprint.Repository
         {
             return _dbContext.DomesticFootPrints.Where(i => i.Month == Month);
         }
+        public IEnumerable<DomesticFootPrint> GetDomesticFootprintByYear(int Year)
+        {
+            return _dbContext.DomesticFootPrints.Where(i => i.Year == Year);
+        }
 
         public DomesticFootPrint AddDomesticFootPrint(DomesticFootPrint domesticFootPrint)
         {
