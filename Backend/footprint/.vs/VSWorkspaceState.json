@@ -1,0 +1,11 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\footprint",
+    "\\footprint\\Data",
+    "\\footprint\\Data\\GraphQL",
+    "\\footprint\\Repository"
+  ],
+  "SelectedNode": "\\footprint\\Data\\GraphQL\\FootPrintQuery.cs",
+  "PreviewInSolutionExplorer": false
+}

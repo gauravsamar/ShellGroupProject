@@ -45,6 +45,16 @@ namespace footprint.Data.GraphQL
 
                );
             Field<ListGraphType<UserType>>(
+               "userByEmail",
+               arguments: new QueryArguments(new QueryArgument<NonNullGraphType<StringGraphType>> { Name = "email" }),
+               resolve: context =>
+               {
+                   var email = context.GetArgument<string>("email");
+                   return userRepository.GetUserByEmail(email);
+               }
+
+               );
+            Field<ListGraphType<UserType>>(
                 "user",
                 resolve: context => userRepository.GetUser()
                 );
