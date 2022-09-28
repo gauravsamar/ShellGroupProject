@@ -1,16 +1,15 @@
+// https://react-landing-page-template-2021.vercel.app/ 
 import Plot from 'react-plotly.js';
-import {useState} from 'react';
-function Landing() {
+function LineGraph() {
     console.log(window.sessionStorage.getItem("email"));
-    const [fruit,setfruit]=useState(["Apple","Orange","Banana","srg"]);
-    const [val,setval]=useState([1,2,4,5]);
+    
     return ( 
-        
+    
     <Plot
         data={[
           {
-            x: fruit,
-            y: val,
+            x: [1, 2, 3],
+            y: [2, 6, 3],
             type: 'scatter',
             mode: 'lines+markers',
             marker: {color: 'red'},
@@ -26,4 +25,5 @@ function Landing() {
     // console.log(window);
 }
 
-export default Landing;
+export default LineGraph;
+

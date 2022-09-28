@@ -1,27 +1,24 @@
-import React from "react";
-import {gql,useQuery} from "@apollo/client";
-import { useState } from "react";
-
-const CHECK_USER = gql`
-  query check_user($email:String!){
-    userByEmail(email:$email){
-      uID
-    }
-  }
-`;
-function DashBoard(props) {
-    // const [email,setEmail] = useState(props.email);
-    const {loading,error,dat} = useQuery(CHECK_USER, {
-      variables:props.email
-    })
-    return <p>{props.email}</p>
-    // if(error)return<p>Error</p>
-    // if(dat.userByEmail.length==1)return ("Form not submitted!")
-
+import React from 'react';
+export default function Dashboard(){
+    const bodyStyle = { width:'100%',height:'100%',backgroundColor:'lightgrey'};
+    const contentStyle = { width:'95%',height:'100%',backgroundColor:'white',margin:'50px', borderRadius:'10px',display:'flex',justifyContent:"space-between"};
+    const totalStyle = {width:'50%',height:'100%',textAlign:'center'};
+    const singleStyle = {borderLeft:'1px solid lightgrey',width:'50%',height:'auto',textAlign:'center'};
     return(
-        <p>Welcome user!</p>
+        <div className="body" style={bodyStyle}>
+            <div className="content" style={contentStyle}>
+                <div className="total" style={totalStyle}>
+                    <h1>Total</h1>
+                    <h1>Total</h1>
+                    <h1>Total</h1>
+                    <h1>Total</h1>
+                    <h1>Total</h1>
+                    <h1>Total</h1>
+                </div>
+                <div className="single" style={singleStyle}>
+                    Single
+                </div>
+            </div>
+        </div>
     )
-    
 }
-
-export default DashBoard;

@@ -101,6 +101,7 @@ namespace footprint.Data.GraphQL
                }
 
                );
+            
             Field<ListGraphType<UserType>>(
                 "user",
                 resolve: context => userRepository.GetUser()

@@ -13,14 +13,16 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import {gql,useMutation} from "@apollo/client";
+import {useState,useContext } from 'react';
+
 import { useNavigate } from 'react-router-dom';
 
 function Copyright(props) {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
       {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
+      <Link color="inherit" href="http://localhost:3000/">
+        Decarburization
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
@@ -38,27 +40,34 @@ const LOGIN_USER = gql`
 
 
 
+
 export default function SignIn() {
 
+const [email, setemail] = useState('');
+
   const [check] = useMutation(LOGIN_USER);
-  const navigate  = useNavigate();
+  const navigate = useNavigate();
 
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    // console.log({
-    //   email: data.get('email'),
-    //   password: data.get('password'),
-    // });
     const values = {
       "email": data.get('email'),
       "password": data.get('password')
     }
     
+    
     check({variables:{user:values}})
     .then(data => {
       console.log(data.data.login);
-      if(data.data.login)navigate("/dashboard");
+      if(data.data.login){
+        window.sessionStorage.setItem("email", email);
+        // console.log(window.sessionStorage.getItem("email"));
+        navigate("/");
+        
+      }else{
+        
+      }
     })
     .catch(err => {
       console.log(err);
@@ -112,6 +121,7 @@ export default function SignIn() {
                 name="email"
                 autoComplete="email"
                 autoFocus
+                onChange={(e) => setemail(e.target.value)}
               />
               <TextField
                 margin="normal"
@@ -136,13 +146,8 @@ export default function SignIn() {
                 Sign In
               </Button>
               <Grid container>
-                <Grid item xs>
-                  <Link href="#" variant="body2">
-                    Forgot password?
-                  </Link>
-                </Grid>
                 <Grid item>
-                  <Link href="#" variant="body2">
+                  <Link href="http://localhost:3000/signup" variant="body2">
                     {"Don't have an account? Sign Up"}
                   </Link>
                 </Grid>
