@@ -3,14 +3,16 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 // import App from './App';
 import reportWebVitals from './reportWebVitals';
-import Footprint from './components/FootprintCalc/Footprint';
+// import Footprint from './components/FootprintCalc/Footprint';
+import Dashboard from './components/Dashboard';
+import LineGraph from './components/Graph';
 // import Userfetchsample from './components/Userfetchsample';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Footprint/>
+    <LineGraph/>
   </React.StrictMode>
 );
 
