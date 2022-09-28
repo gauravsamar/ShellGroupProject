@@ -77,6 +77,19 @@ namespace footprint.Data.GraphQL
                }
 
                );
+            Field<ListGraphType<TransportType>>(
+               "transportFootprintByYearAndUser",
+               arguments: new QueryArguments(new QueryArgument<NonNullGraphType<IntGraphType>> { Name = "year" },
+               new QueryArgument<NonNullGraphType<IntGraphType>> { Name = "UID" }),
+
+               resolve: context =>
+               {
+                   var year = context.GetArgument<int>("year");
+                   var UID = context.GetArgument<int>("UID");
+                   return transportRepository.GetTransportFootprintByYearAndUser(year, UID);
+               }
+
+               );
 
             Field<ListGraphType<UserType>>(
                "userByEmail",
