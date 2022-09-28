@@ -21,8 +21,8 @@ function Copyright(props) {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
       {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
+      <Link color="inherit" href="http://localhost:3000/">
+        Decarburization
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
@@ -63,8 +63,6 @@ export default function SignUp() {
 
   const[addUser] = useMutation(ADD_USER);
 
-
-  
   
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -190,12 +188,6 @@ export default function SignUp() {
                   autoComplete="new-password"
                 />
               </Grid>
-              <Grid item xs={12}>
-                <FormControlLabel
-                  control={<Checkbox value="allowExtraEmails" color="primary" />}
-                  label="I want to receive inspiration, marketing promotions and updates via email."
-                />
-              </Grid>
             </Grid>
             <Button
               type="submit"
@@ -207,7 +199,7 @@ export default function SignUp() {
             </Button>
             <Grid container justifyContent="flex-end">
               <Grid item>
-                <Link href="#" variant="body2">
+                <Link href="http://localhost:3000/signin" variant="body2">
                   Already have an account? Sign in
                 </Link>
               </Grid>

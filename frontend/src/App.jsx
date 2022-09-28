@@ -5,6 +5,9 @@ import SignUp from "./components/SignUp";
 import Landing from "./components/Landing";
 import Error from "./components/Error";
 import Dashboard from "./components/Dashboard";
+import About from "./components/About";
+import Home from "./components/Home";
+import Goals from "./components/Goals";
 
 import {Routes, Route, BrowserRouter as Router} from "react-router-dom";
 import {ApolloClient , ApolloProvider , HttpLink, InMemoryCache} from "@apollo/client";
@@ -28,6 +31,9 @@ function AppRouter(){
           <Route exact path="/" element={<Landing/>} />
           <Route path="/signin" element={<SignIn/>} />
           <Route path="/signup" element={<SignUp/>} />
+          <Route path="/about" element={<About/>} />
+          <Route path="/home" element={<Home/>} />
+          <Route path="/goal" element={<Goals/>} />
           <Route path="*" element = {<Error/>} />
         </Routes>
       </Router>
