@@ -1,18 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
+// import App from './App';
 import reportWebVitals from './reportWebVitals';
 import Footprint from './components/FootprintCalc/Footprint';
 import { CookiesProvider } from "react-cookie";
 // import Userfetchsample from './components/Userfetchsample';
-
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Transport from './components/FootprintCalc/Transport';
+import Domestic from './components/FootprintCalc/Domestic';
+import About from './components/About';
+import Goals from './components/Goals';
+import Home from './components/Home';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <CookiesProvider>
   <React.StrictMode>
-    <App/>
+    <Home />
   </React.StrictMode>
   </CookiesProvider>
 );
