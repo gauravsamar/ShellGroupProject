@@ -107,6 +107,7 @@ namespace footprint.Data
                 dbContext.DomesticFootPrints.Add(new DomesticFootPrint
                 {
                     Month = "May",
+                    UID=1,
                     Year = 2022,
                     Lpg = 5F,
                     Cng = 6.8F,
@@ -119,6 +120,7 @@ namespace footprint.Data
             {
                 dbContext.Users.Add(new User
                 {
+                    
                     Email = "john@gmail.com",
                     Password = "admin@123"
 
