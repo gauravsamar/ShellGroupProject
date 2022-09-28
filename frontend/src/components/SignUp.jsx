@@ -13,6 +13,9 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import {gql,useQuery} from "@apollo/client";
+import { Dashboard} from '@mui/icons-material';
+import {useNavigate} from "react-router-dom";
+import {useMutation} from "@apollo/client";
 
 function Copyright(props) {
   return (
@@ -30,19 +33,102 @@ function Copyright(props) {
 const theme = createTheme();
 
 
+// const CHECK_USER = gql`
+//   query check_user($email:String!){
+//     userByEmail(email:$email){
+//       uID
+//     }
+//   }
+// `;
+
+const LOGIN_USER = gql`
+  mutation signup($user: userInput!){
+    signup(user:$user)
+  }
+`;
+
+const ADD_USER = gql`
+  mutation createUser($user: userInput!){
+    createUser(user:$user){
+        username
+    }
+  }
+`;
+
 export default function SignUp() {
+
+  // const navigate = useNavigate();
+  const [check] = useMutation(LOGIN_USER);
+  const navigate  = useNavigate();
+
+  const[addUser] = useMutation(ADD_USER);
+
+
+  
+  
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
+    // console.log({
+    //   email: data.get('email'),
+    //   password: data.get('password'),
+    // });
+    // let email = data.get('email');
+    // obj = {email:data.get('email'),password:data.get("password")};
+
+    // const {loading,error,dat} = useQuery(CHECK_USER, {
+    //   variables:{email}
+    // })
+
+    // return (<Dashboard email={email} />)
+    // navigate("/dashboard",{replace:true,state:{email}})
 
 
-  };
+    const values = {
+        "email": data.get('email'),
+        "password": data.get('password')
+      }
+    
+    const user = {
+        "email": data.get('email'),
+        "password":data.get('password'),
+        "username":data.get('firstName')
+    }
+
+    
+
+      check({variables:{user:values}})
+      .then(data => {
+        console.log(data.data.signup);
+        if(data.data.signup)navigate("/dashboard");
+        else{
+            addUser({variables:{user:user}})
+            .then(data => {
+                console.log(data);
+            })
+            .catch(err => {
+                console.log(err);
+            })
+        }
+      })
+      .catch(err => {
+        console.log(err);
+      })
+   
+};
+
+
+
+
+
+
+
+
+
 
   return (
+
+    
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
         <CssBaseline />
@@ -86,7 +172,7 @@ export default function SignUp() {
               <Grid item xs={12}>
                 <TextField
                   required
-                  fullWidth
+                  fullWidths
                   id="email"
                   label="Email Address"
                   name="email"
@@ -131,5 +217,8 @@ export default function SignUp() {
         <Copyright sx={{ mt: 5 }} />
       </Container>
     </ThemeProvider>
+
   );
 }
+
+
