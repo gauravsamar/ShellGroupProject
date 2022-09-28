@@ -31,6 +31,10 @@ namespace footprint.Repository
             _dbContext.SaveChanges();
             return transportFootPrint;
         }
+        public IEnumerable<TransportFootPrint> GetTransportFootprintByYear(int Year)
+        {
+            return _dbContext.TransprotFootPrints.Where(i => i.Year == Year);
+        }
 
     }
 }
