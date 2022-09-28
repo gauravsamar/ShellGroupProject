@@ -37,6 +37,7 @@ export default function Dashboard(){
     const totalStyle = {width:'50%',height:'100%',textAlign:'center',display:'flex',marginLeft:'5px',marginRight:'5px',flexDirection:'column'};
     const singleStyle = {borderLeft:'1px solid lightgrey',width:'50%',textAlign:'center'};
     const textStyle = {borderColor: "green", color : '#428558', marginBottom:'1px', width:'100%', display:'flex',flexDirection:'column', marginLeft:'20px',};
+
     // const btnStyle = {background : '#428558',color:'white', margin:'10px', width:'100%',marginLeft:'25px', marginBottom:'40px'};
     // const divStyle = {width:'48.4%', display:'flex',alignItems:'center',flexDirection:'column',marginLeft:'10px'}
     return(
@@ -48,12 +49,11 @@ export default function Dashboard(){
                 <div className="total" style={totalStyle}>
                     <div>
                         <div className="fields" style={{display:'flex',justifyContent:'space-evenly',width:'80%',marginLeft:'50px',marginTop:'30px'}}>
-                        <CssTextField  id="outlined-basic" label="Month" variant="outlined"
-                        style={textStyle} onChange={true}/>
                         <CssTextField  id="outlined-basic" label="Year" variant="outlined"
                         style={textStyle} onChange={true}/>
-                        </div>
                         <Button variant="contained" size="medium" style={btnStyle}>Calculate </Button>
+                        </div>
+                        
                     </div>
 
                     <div className="graph">
@@ -61,7 +61,7 @@ export default function Dashboard(){
                     </div>
                 </div>
                 <div className="single" style={singleStyle}>
-                    {/* <div>
+                    <div>
                         <div className="fields" style={{display:'flex',justifyContent:'space-evenly',width:'80%',marginLeft:'50px'}}>
                         <CssTextField  id="outlined-basic" label="Month" variant="outlined"
                         style={textStyle} onChange={true}/>
@@ -69,9 +69,9 @@ export default function Dashboard(){
                         style={textStyle} onChange={true}/>
                         </div>
                         <Button variant="contained" size="medium" style={btnStyle}>Calculate </Button>
-                    </div> */}
-                    <LineGraph height="300" width="500" title="Transport"/>
-                    <LineGraph height="300" width="500" title="Domestic"/>
+                    </div>
+                    <LineGraph height="300" width="500" title="Transport" x={[1,2,3]}/>
+                    <LineGraph height="300" width="500" title="Domestic" x={[4,1,2]}/>
                 </div>
             </div>
         </div>

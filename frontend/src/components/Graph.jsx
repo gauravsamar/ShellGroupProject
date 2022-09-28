@@ -8,7 +8,7 @@ function LineGraph(props) {
     <Plot
         data={[
           {
-            x: [1, 2, 3],
+            x: props.x,
             y: [2, 6, 3],
             type: 'scatter',
             mode: 'lines+markers',

@@ -25,7 +25,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <CookiesProvider>
   <React.StrictMode>
-    <Domestic/>
+    <Dashboard/>
   </React.StrictMode>
   </CookiesProvider>
 );
