@@ -16,7 +16,7 @@ export default function Dashboard(){
                     <h1>Total</h1>
                 </div>
                 <div className="single" style={singleStyle}>
-                    Single
+                    <h1>Single</h1>
                 </div>
             </div>
         </div>
