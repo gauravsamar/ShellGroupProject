@@ -60,16 +60,14 @@ const [email, setemail] = useState('');
     check({variables:{user:values}})
     .then(data => {
       console.log(data.data.login);
-<<<<<<< HEAD
       if(data.data.login){
         window.sessionStorage.setItem("email", email);
         // console.log(window.sessionStorage.getItem("email"));
         navigate("/");
         
+      }else{
+        
       }
-=======
-      if(data.data.login)navigate("/error");
->>>>>>> 4f2313672ae8e638ee19268f67cfdc23bd82014d
     })
     .catch(err => {
       console.log(err);

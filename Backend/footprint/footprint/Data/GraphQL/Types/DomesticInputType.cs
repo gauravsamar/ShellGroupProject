@@ -12,10 +12,11 @@ namespace footprint.Data.GraphQL.Types
         {
             Name = "domesticInput";
             Field<NonNullGraphType<StringGraphType>>("month");
-            Field<StringGraphType>("year");
-            Field<NonNullGraphType<StringGraphType>>("lpg");
-            Field<NonNullGraphType<StringGraphType>>("cng");
-            Field<NonNullGraphType<StringGraphType>>("carbondomestic");
+            Field<IntGraphType>("year");
+            Field<NonNullGraphType<FloatGraphType>>("lpg");
+            Field<NonNullGraphType<FloatGraphType>>("cng");
+            Field<NonNullGraphType<FloatGraphType>>("carbondomestic");
+            Field<NonNullGraphType<IntGraphType>>("UID");
 
         }
 
