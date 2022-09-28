@@ -13,6 +13,8 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import {gql,useMutation} from "@apollo/client";
+import {useState,useContext } from 'react';
+
 import { useNavigate } from 'react-router-dom';
 
 function Copyright(props) {
@@ -38,27 +40,36 @@ const LOGIN_USER = gql`
 
 
 
+
 export default function SignIn() {
 
+const [email, setemail] = useState('');
+
   const [check] = useMutation(LOGIN_USER);
-  const navigate  = useNavigate();
+  const navigate = useNavigate();
 
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    // console.log({
-    //   email: data.get('email'),
-    //   password: data.get('password'),
-    // });
     const values = {
       "email": data.get('email'),
       "password": data.get('password')
     }
     
+    
     check({variables:{user:values}})
     .then(data => {
       console.log(data.data.login);
+<<<<<<< HEAD
+      if(data.data.login){
+        window.sessionStorage.setItem("email", email);
+        // console.log(window.sessionStorage.getItem("email"));
+        navigate("/");
+        
+      }
+=======
       if(data.data.login)navigate("/error");
+>>>>>>> 4f2313672ae8e638ee19268f67cfdc23bd82014d
     })
     .catch(err => {
       console.log(err);
@@ -112,6 +123,7 @@ export default function SignIn() {
                 name="email"
                 autoComplete="email"
                 autoFocus
+                onChange={(e) => setemail(e.target.value)}
               />
               <TextField
                 margin="normal"

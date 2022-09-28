@@ -10,7 +10,7 @@ export default function Transport(){
     const textStyle = {borderColor: "green", color : '#428558', marginBottom:'12px', width:'100%', display:'flex',flexDirection:'column', marginLeft:'20px',};
     const btnStyle = {background : '#428558',color:'white', margin:'10px', width:'100%',marginLeft:'25px', marginBottom:'40px'};
     const divStyle = {width:'48.4%', display:'flex',alignItems:'center',flexDirection:'column',marginLeft:'10px'}
-    const divsStyle = {width:'48.4%', display:'flex',alignItems:'center',flexDirection:'column',marginLeft:'10px',width:'100%', paddingLeft:'0px', paddingTop:'10px', paddingLeft:'10px',}
+    const divsStyle = {width:'48.4%', display:'flex',alignItems:'center',flexDirection:'column',marginLeft:'10px',width:'100%', paddingTop:'10px', paddingLeft:'10px',}
     const [petrol,setPetrol] = useState(0);
     const [diesel, setDiesel] = useState(0);
     const [lpg, setLpg] = useState(0);

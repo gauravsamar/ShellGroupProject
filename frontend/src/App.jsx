@@ -28,6 +28,7 @@ function AppRouter(){
     <div>
       <Router>
         <Routes>
+          
           <Route exact path="/" element={<Landing/>} />
           <Route path="/signin" element={<SignIn/>} />
           <Route path="/signup" element={<SignUp/>} />
@@ -35,6 +36,7 @@ function AppRouter(){
           <Route path="/home" element={<Home/>} />
           <Route path="/goal" element={<Goals/>} />
           <Route path="*" element = {<Error/>} />
+         
         </Routes>
       </Router>
     </div>

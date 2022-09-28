@@ -3,10 +3,12 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 // import App from './App';
 import reportWebVitals from './reportWebVitals';
+import Footprint from './components/FootprintCalc/Footprint';
+import { CookiesProvider } from "react-cookie";
 // // import Footprint from './components/FootprintCalc/Footprint';
 import Dashboard from './components/Dashboard';
-// import LineGraph from './components/Graph';
-// import LoggedInNavbar from './components/LoggedInNavbar';
+import LineGraph from './components/Graph';
+import LoggedInNavbar from './components/LoggedInNavbar';
 // import Userfetchsample from './components/Userfetchsample';
 import 'bootstrap/dist/css/bootstrap.min.css';
 // import Transport from './components/FootprintCalc/Transport';
@@ -17,9 +19,11 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
+  <CookiesProvider>
   <React.StrictMode>
     <Dashboard/>
   </React.StrictMode>
+  </CookiesProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function
