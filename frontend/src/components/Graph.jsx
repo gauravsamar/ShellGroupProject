@@ -15,7 +15,7 @@ function LineGraph() {
             marker: {color: 'red'},
           }
         ]}
-        layout={ {width: 500, height: 500, title: 'A Fancy Plot'} }
+        layout={ {width: 500, height: 300, title: 'A Fancy Plot'} }
       />
     
     
