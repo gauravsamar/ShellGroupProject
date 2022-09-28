@@ -4,10 +4,13 @@ import { Button } from '@material-ui/core';
 import { useState } from "react";
 import { styled } from '@mui/material/styles';
 import LoggedInNavbar from '../LoggedInNavbar';
+
+
 export default function Transport(){
     const textStyle = {borderColor: "green", color : '#428558', marginBottom:'12px', width:'100%', display:'flex',flexDirection:'column', marginLeft:'20px',};
     const btnStyle = {background : '#428558',color:'white', margin:'10px', width:'100%',marginLeft:'25px', marginBottom:'40px'};
     const divStyle = {width:'48.4%', display:'flex',alignItems:'center',flexDirection:'column',marginLeft:'10px'}
+    const divsStyle = {width:'48.4%', display:'flex',alignItems:'center',flexDirection:'column',marginLeft:'10px',width:'100%', paddingLeft:'0px', paddingTop:'10px', paddingLeft:'10px',}
     const [petrol,setPetrol] = useState(0);
     const [diesel, setDiesel] = useState(0);
     const [lpg, setLpg] = useState(0);
@@ -64,7 +67,7 @@ export default function Transport(){
             </div>
 
             <div style={{display:'flex',justifyContent:'center', alignItems:'center',overflow:'hidden',width: '90%',padding:'0px 20px'}}>
-            <div className="form" style={divStyle} style={{width:'100%', paddingLeft:'0px', paddingTop:'10px', paddingLeft:'10px',}} >
+            <div className="form" style={divsStyle} >
             <CssTextField id="outlined-basic" label="Petrol (litres)" variant="outlined"
             style={textStyle }  onChange={ (val)=>setPetrol(val.target.value)}
             />

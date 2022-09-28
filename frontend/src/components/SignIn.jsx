@@ -21,8 +21,8 @@ function Copyright(props) {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
       {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
+      <Link color="inherit" href="http://localhost:3000/">
+        Decarburization
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
@@ -60,12 +60,16 @@ const [email, setemail] = useState('');
     check({variables:{user:values}})
     .then(data => {
       console.log(data.data.login);
+<<<<<<< HEAD
       if(data.data.login){
         window.sessionStorage.setItem("email", email);
         // console.log(window.sessionStorage.getItem("email"));
         navigate("/");
         
       }
+=======
+      if(data.data.login)navigate("/error");
+>>>>>>> 4f2313672ae8e638ee19268f67cfdc23bd82014d
     })
     .catch(err => {
       console.log(err);
@@ -144,13 +148,8 @@ const [email, setemail] = useState('');
                 Sign In
               </Button>
               <Grid container>
-                <Grid item xs>
-                  <Link href="#" variant="body2">
-                    Forgot password?
-                  </Link>
-                </Grid>
                 <Grid item>
-                  <Link href="#" variant="body2">
+                  <Link href="http://localhost:3000/signup" variant="body2">
                     {"Don't have an account? Sign Up"}
                   </Link>
                 </Grid>

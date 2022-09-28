@@ -3,8 +3,15 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 // import App from './App';
 import reportWebVitals from './reportWebVitals';
+<<<<<<< HEAD
 import Footprint from './components/FootprintCalc/Footprint';
 import { CookiesProvider } from "react-cookie";
+=======
+// // import Footprint from './components/FootprintCalc/Footprint';
+import Dashboard from './components/Dashboard';
+import LineGraph from './components/Graph';
+import LoggedInNavbar from './components/LoggedInNavbar';
+>>>>>>> 4f2313672ae8e638ee19268f67cfdc23bd82014d
 // import Userfetchsample from './components/Userfetchsample';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Transport from './components/FootprintCalc/Transport';
@@ -17,7 +24,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <CookiesProvider>
   <React.StrictMode>
-    <Home />
+    <LineGraph/>
   </React.StrictMode>
   </CookiesProvider>
 );
