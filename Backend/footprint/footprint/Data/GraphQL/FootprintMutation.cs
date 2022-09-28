@@ -53,6 +53,15 @@ namespace footprint.Data.GraphQL
                 return userRepository.login(user.Email, user.Password);
             });
 
+            Field<BooleanGraphType>(
+            "signup",
+            arguments: new QueryArguments(new QueryArgument<NonNullGraphType<UserInputType>> { Name = "user" }),
+            resolve: context =>
+            {
+                var user = context.GetArgument<User>("user");
+                return userRepository.signup(user.Email);
+            });
+
         }
     }
 }

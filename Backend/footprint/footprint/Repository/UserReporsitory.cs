@@ -20,6 +20,13 @@ namespace footprint.Repository
         {
             var user = this._dbContext.Users.Where(u => u.Email == email && u.Password == password).FirstOrDefault();
             return user == null ? false : true;
+   
+        }
+        public bool signup(string email)
+        {
+            var user = this._dbContext.Users.Where(u => u.Email == email).FirstOrDefault();
+            return user == null ? false : true;
+
         }
 
         public User AddUser(User user)

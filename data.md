@@ -14,12 +14,4 @@ LPG Cylinder - 42.50
 CNG at home (m3) = 1.82
 Electricity (1kWh) = 0.9
 
-Fuel in litres as used in personal vehicle. In case of car pool, divide total fuel volume by total number of people. All people in the car pool need to account for the divided fuel volume.
-
-If you use a car that uses LPG as the fuel.
-
-For these modes of Public Transport, fill in approximate distance used.
-
-These reflect you residential consumption. You should get these values from keeping track of the LPG cylinders and from your CNG and electric bills.
-
-This figure is based on this month's usage.
+Keep in mind that an “ideal” carbon footprint (or a “low” footprint) is anywhere from 6,000 to 15,999 pounds per year. 16,000-22,000 is considered average. Under 6,000 is considered very low. Over 22,000? You may want to take some of these “living green” practices into consideration.
