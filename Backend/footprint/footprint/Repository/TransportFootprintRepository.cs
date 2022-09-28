@@ -24,6 +24,10 @@ namespace footprint.Repository
         {
             return _dbContext.TransprotFootPrints.Where(i => i.Month == Month);
         }
+        public IEnumerable<TransportFootPrint> GetTransportFootprintByYearAndUser(int Year, int UID)
+        {
+            return _dbContext.TransprotFootPrints.Where(i => i.Year == Year && i.UID == UID);
+        }
 
         public TransportFootPrint AddTransportFootprint(TransportFootPrint transportFootPrint)
         {

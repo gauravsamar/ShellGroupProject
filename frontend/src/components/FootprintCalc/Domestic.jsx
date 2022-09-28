@@ -10,9 +10,9 @@ export default function Domestic(){
     const btnStyle = {background : '#428558',color:'white', margin:'10px', width:'88%', marginLeft:'40px'};
     const [month,setMonth] = useState('');
     const [year,setYear] = useState(2022);
-    const [lpg, setlpg] = useState(0);
-    const [cng, settaxi] = useState(0);
-    const [elec, setbus] = useState(0);
+    // const [lpg, setlpg] = useState(0);
+    // const [cng, settaxi] = useState(0);
+    // const [elec, setbus] = useState(0);
     const CssTextField = styled(TextField)({
             '& label.Mui-focused': {
             color: 'green',

@@ -13,9 +13,11 @@ namespace footprint.Data
         {
             this.Database.EnsureCreated();
         }
+        
         public DbSet<TransportFootPrint> TransprotFootPrints { get; set; }
         public DbSet<DomesticFootPrint> DomesticFootPrints { get; set; }
 
         public DbSet<User> Users { get; set; }
     }
+
 }
