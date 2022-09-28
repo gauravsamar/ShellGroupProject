@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\muskan.sahni\\Desktop\\ShellGroupProject\\Backend\\footprint\\footprint\\footprint.csproj": {}
+    "C:\\Users\\Shaswat.Shrikant\\Desktop\\Project\\ShellGroupProject\\Backend\\footprint\\footprint\\footprint.csproj": {}
   },
   "projects": {
-    "C:\\Users\\muskan.sahni\\Desktop\\ShellGroupProject\\Backend\\footprint\\footprint\\footprint.csproj": {
+    "C:\\Users\\Shaswat.Shrikant\\Desktop\\Project\\ShellGroupProject\\Backend\\footprint\\footprint\\footprint.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\muskan.sahni\\Desktop\\ShellGroupProject\\Backend\\footprint\\footprint\\footprint.csproj",
+        "projectUniqueName": "C:\\Users\\Shaswat.Shrikant\\Desktop\\Project\\ShellGroupProject\\Backend\\footprint\\footprint\\footprint.csproj",
         "projectName": "footprint",
-        "projectPath": "C:\\Users\\muskan.sahni\\Desktop\\ShellGroupProject\\Backend\\footprint\\footprint\\footprint.csproj",
-        "packagesPath": "C:\\Users\\muskan.sahni\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\muskan.sahni\\Desktop\\ShellGroupProject\\Backend\\footprint\\footprint\\obj\\",
+        "projectPath": "C:\\Users\\Shaswat.Shrikant\\Desktop\\Project\\ShellGroupProject\\Backend\\footprint\\footprint\\footprint.csproj",
+        "packagesPath": "C:\\Users\\Shaswat.Shrikant\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Shaswat.Shrikant\\Desktop\\Project\\ShellGroupProject\\Backend\\footprint\\footprint\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\muskan.sahni\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Shaswat.Shrikant\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

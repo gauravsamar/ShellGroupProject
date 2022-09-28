@@ -4,6 +4,8 @@ import SignIn from "./components/SignIn";
 import SignUp from "./components/SignUp";
 import Landing from "./components/Landing";
 import Error from "./components/Error";
+import Dashboard from "./components/Dashboard";
+
 import {Routes, Route, BrowserRouter as Router} from "react-router-dom";
 import {ApolloClient , ApolloProvider , HttpLink, InMemoryCache} from "@apollo/client";
 import Userfetchsample from './components/Userfetchsample';
