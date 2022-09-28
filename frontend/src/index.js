@@ -1,17 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-// import App from './App';
+import App from './App';
 import reportWebVitals from './reportWebVitals';
 import Footprint from './components/FootprintCalc/Footprint';
+import { CookiesProvider } from "react-cookie";
 // import Userfetchsample from './components/Userfetchsample';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
+  <CookiesProvider>
   <React.StrictMode>
-    <Footprint/>
+    <App/>
   </React.StrictMode>
+  </CookiesProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function

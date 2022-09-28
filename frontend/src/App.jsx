@@ -23,10 +23,12 @@ function AppRouter(){
     <div>
       <Router>
         <Routes>
+          
           <Route exact path="/" element={<Landing/>} />
           <Route path="/signin" element={<SignIn/>} />
           <Route path="/signup" element={<SignUp/>} />
           <Route path="*" element = {<Error/>} />
+         
         </Routes>
       </Router>
     </div>
