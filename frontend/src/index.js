@@ -11,6 +11,10 @@ import Dashboard from './components/Dashboard';
 // import LoggedInNavbar from './components/LoggedInNavbar';
 // import Userfetchsample from './components/Userfetchsample';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Home from './components/Home';
+import Home2 from './components/home2';
+import Transport from './components/FootprintCalc/Transport';
+import Domestic from './components/FootprintCalc/Domestic';
 // import Transport from './components/FootprintCalc/Transport';
 // import Domestic from './components/FootprintCalc/Domestic';
 // import About from './components/About';
@@ -21,7 +25,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <CookiesProvider>
   <React.StrictMode>
-    <Dashboard/>
+    <Domestic/>
   </React.StrictMode>
   </CookiesProvider>
 );
