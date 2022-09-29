@@ -24,7 +24,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <CookiesProvider>
   <React.StrictMode>
-    <App/>
+    <DenseTable/>
   </React.StrictMode>
   </CookiesProvider>
 );

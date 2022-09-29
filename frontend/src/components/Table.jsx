@@ -14,9 +14,31 @@ import { styled } from '@mui/material/styles';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 
+const output = (arg)=>{
+
+        if(arg<225)
+
+        return 'IDEAL';
+
+        else if(arg>=225 && arg<598)
+
+        return 'LOW';
+
+        else if(arg>=598 && arg<822)
+
+        return 'AVERAGE';
+
+        else
+
+        return 'HIGH';
+
+    }
+
 function createData(name, calories, fat, carbs) {
-  return { name, calories, fat, carbs };
+  let range = output(carbs);
+  return { name, calories, fat, carbs, range };
 }
+
 
 const CssTextField = styled(TextField)({
             '& label.Mui-focused': {
@@ -76,6 +98,7 @@ export default function DenseTable() {
             <TableCell align="center">Transport Use (C02 in kg)</TableCell>
             <TableCell align="center">Domestic Use (C02 in kg)</TableCell>
             <TableCell align="center">Total (C02 in kg)</TableCell>
+            <TableCell align="center">Range</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -90,7 +113,7 @@ export default function DenseTable() {
               <TableCell align="center">{row.calories} &nbsp; <EditIcon style={{color:'#428558',cursor:'pointer'}}/> &nbsp; <DeleteIcon style={{color:'#428558',cursor:'pointer'}}/></TableCell>
               <TableCell align="center">{row.fat} &nbsp; <EditIcon style={{color:'#428558', cursor:'pointer'}}/> &nbsp; <DeleteIcon style={{color:'#428558',cursor:'pointer'}}/>  </TableCell>
               <TableCell align="center">{row.carbs} </TableCell>
-              {/* <TableCell align="center">{row.protein}</TableCell> */}
+              <TableCell align="center">{row.range}</TableCell>
             </TableRow>
           ))}
         </TableBody>
