@@ -15,6 +15,8 @@ import Home from './components/Home';
 import Home2 from './components/home2';
 import Transport from './components/FootprintCalc/Transport';
 import Domestic from './components/FootprintCalc/Domestic';
+import DenseTable from './components/Table';
+import DataTable from './components/dataTable';
 // import Transport from './components/FootprintCalc/Transport';
 // import Domestic from './components/FootprintCalc/Domestic';
 // import About from './components/About';
@@ -25,7 +27,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <CookiesProvider>
   <React.StrictMode>
-    <Dashboard/>
+    <DenseTable/>
   </React.StrictMode>
   </CookiesProvider>
 );
