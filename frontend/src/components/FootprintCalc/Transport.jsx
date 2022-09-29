@@ -6,6 +6,7 @@ import { styled } from '@mui/material/styles';
 import LoggedInNavbar from '../LoggedInNavbar';
 import {gql,useQuery,useMutation} from "@apollo/client";
 import {ApolloClient , ApolloProvider , HttpLink, InMemoryCache} from "@apollo/client";
+import { useNavigate } from 'react-router-dom';
 
 
 const CREATE_TRANSPORT = gql`
@@ -17,7 +18,7 @@ mutation createtransport($transport:transportInput!){
 `;
 
 export default function Transport(){
-
+    const navigate = useNavigate();
     const client  = new ApolloClient({
         cache : new InMemoryCache(),
         link: new HttpLink({
@@ -97,6 +98,7 @@ export default function Transport(){
         addTransport({variables:{transport:datain}})
         .then(data => {
             console.log("User transport added");
+            navigate("/dashboard");
         })
         .catch(err => {
             console.log(err);

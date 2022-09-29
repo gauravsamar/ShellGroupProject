@@ -62,6 +62,55 @@ namespace footprint.Data.GraphQL
                 return userRepository.signup(user.Email);
             });
 
+            Field<ListGraphType<UserType>>(
+              "userByEmail",
+              arguments: new QueryArguments(new QueryArgument<NonNullGraphType<StringGraphType>> { Name = "email" }),
+              resolve: context =>
+              {
+                  var email = context.GetArgument<string>("email");
+                  return userRepository.GetUserByEmail(email);
+              }
+             );
+
+
+            Field<ListGraphType<DomesticType>>(
+               "domesticFootprintByYearAndUser",
+               arguments: new QueryArguments(new QueryArgument<NonNullGraphType<IntGraphType>> { Name = "year" },
+               new QueryArgument<NonNullGraphType<IntGraphType>> { Name = "UID" }),
+
+
+
+              resolve: context =>
+              {
+                  var year = context.GetArgument<int>("year");
+                  var UID = context.GetArgument<int>("UID");
+                  return domesticFootprintRepository.GetDomesticFootprintByYearAndUser(year, UID);
+              }
+
+
+
+              );
+
+
+
+            Field<ListGraphType<TransportType>>(
+               "transportFootprintByYearAndUser",
+               arguments: new QueryArguments(new QueryArgument<NonNullGraphType<IntGraphType>> { Name = "year" },
+               new QueryArgument<NonNullGraphType<IntGraphType>> { Name = "UID" }),
+
+
+
+              resolve: context =>
+              {
+                  var year = context.GetArgument<int>("year");
+                  var UID = context.GetArgument<int>("UID");
+                  return transportFootPrintRepository.GetTransportFootprintByYearAndUser(year, UID);
+              }
+
+
+
+              );
+
         }
     }
 }

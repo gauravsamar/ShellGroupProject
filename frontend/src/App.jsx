@@ -33,7 +33,6 @@ function AppRouter(){
     <div>
       <Router>
         <Routes>
-          
           <Route exact path="/" element={<Home/>} />
           <Route path="/signin" element={<SignIn/>} />
           <Route path="/signup" element={<SignUp/>} />
@@ -44,7 +43,7 @@ function AppRouter(){
           <Route path="/transport" element={<Transport/>}/>
           <Route path="/home"  element={<Home2/>}/>
           <Route path="/table" element={<DenseTable/>}/>
-         
+          <Route path="/dashboard" element={<Dashboard/>}/>
         </Routes>
       </Router>
     </div>

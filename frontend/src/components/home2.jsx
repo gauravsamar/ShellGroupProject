@@ -51,7 +51,7 @@ function Home2() {
         <Card.Text>
          Visualise your Carbon Footprint in different forms.
         </Card.Text>
-        <Button style={{backgroundColor:'rgb(107, 156, 123)',borderColor:'Green',borderColor:'rgb(107, 156, 123)'}} variant="primary">Visualise</Button>
+        <Button style={{backgroundColor:'rgb(107, 156, 123)',borderColor:'Green',borderColor:'rgb(107, 156, 123)'}} variant="primary" href="/dashboard">Visualise</Button>
       </Card.Body>
     
     </Card>
@@ -66,7 +66,7 @@ function Home2() {
         <Card.Text>
          View your Carbon Footprint Data in tabular form.
         </Card.Text>
-        <Button style={{backgroundColor:'rgb(107, 156, 123)', borderColor:'Green'}} variant="primary">View Data</Button>
+        <Button style={{backgroundColor:'rgb(107, 156, 123)', borderColor:'Green'}} variant="primary" href="/table">View Data</Button>
       </Card.Body>
       
     </Card>

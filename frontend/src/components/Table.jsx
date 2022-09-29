@@ -13,6 +13,8 @@ import { useState } from "react";
 import { styled } from '@mui/material/styles';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
+import {ApolloClient , ApolloProvider , HttpLink, InMemoryCache} from "@apollo/client";
+import {gql,useQuery,useMutation} from "@apollo/client";
 
 function createData(name, calories, fat, carbs) {
   return { name, calories, fat, carbs };
@@ -57,14 +59,75 @@ const rows = [
 export default function DenseTable() {
     const [year, setYear] = useState(0);
     const btnStyle = {background : '#428558',color:'white', margin:'10px', width:'20%',marginLeft:'25px', marginBottom:'10px'};
+
+    const client  = new ApolloClient({
+      cache : new InMemoryCache(),
+      link: new HttpLink({
+        uri : "https://localhost:5001/graphql" //for consuming the graphql api
+      }),
+      credentials : "same-origin"
+    })
+
+    const email = window.sessionStorage.getItem("email");
+    const [uID,setUserid] = useState("");
+
+    //querying to fetch userid
+    client.query({
+        query: gql`
+    query get_user($email:String!) {
+      userByEmail(email:$email) {
+        uID
+      }}
+
+    `,
+    variables: {email: email}
+      }).then(result => {
+        setUserid(result.data.userByEmail[0].uID);
+    });
+
+
+    const q1_val = {
+      uID:uID,
+      year:parseInt(year)
+    }
+
+    //querying to fetch by userid and year
+    const [did,setdid] = useState([0,1]);
+    client.query({
+      query:gql`
+        query get_did($year:Int!,$uID:Int!){
+          domesticFootprintByYearAndUser(year:$year,uID:$uID){
+            dID
+          }
+        }
+      `,
+      variables:{year:q1_val.year,uID:q1_val.uID}
+    }).then(result=>{
+      setdid(result.data.domesticFootprintByYearAndUser);
+    });
+
+    
+
+    
+
+    //query to fetch domestic id
+    // client.query({
+    //   query:
+    // })
+
+
+
   return (
     
     <div>
     <LoggedInNavbar/>
     <div style={{display:'flex',justifyContent:'center',width:'100%',marginTop:'20px'}}>
+        {/* <form onSubmit={ (val)=>setYear(val.target.value)}> */}
         <CssTextField  id="outlined-basic" label="Year" variant="outlined"
-                    style={{}}  onChange={ (val)=>setYear(val.target.value)}/>
-        <Button variant="contained" size="medium" style={btnStyle}>Submit</Button>
+                    style={{}}  />
+        <Button variant="contained" size="medium" style={btnStyle} type="submit">Submit</Button>
+        
+        {/* </form> */}
         
     </div>
         <div style={{margin:'50px 70px'}}>
