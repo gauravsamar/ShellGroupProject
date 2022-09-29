@@ -49,13 +49,13 @@ const liStyle = {color:"#42855B", fontSize:'50px'};
        <div style={{paddingLeft:'80px', paddingTop:'100px'}}>
 
           <span   style={ {marginTop:"-150px" } }>
-            <b style={liStyle}>Carbon Footprint</b>
+            <b style={liStyle} href="/home">Carbon Watch</b>
           
           </span><br></br>
-          <span style={liStyle}>Calculator</span>{" "}
           <br />
-          <br />
-          <p style={{marginLeft:'5px'}}>Decarburization is the process of decreasing carbon content.</p>
+          <p style={{marginLeft:'5px', fontSize:'25px', color:"#42855B"}}>The first tip to decarbonize your company is to measure its carbon footprint.</p><br></br>
+
+<p style={{marginLeft:'5px', fontSize:'20px', color:"#42855B"}}>Calculate your Carbon Footprint now!</p>
         </div>
        
 

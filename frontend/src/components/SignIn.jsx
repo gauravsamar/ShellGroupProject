@@ -6,26 +6,26 @@ import TextField from '@mui/material/TextField';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import Link from '@mui/material/Link';
-import Paper from '@mui/material/Paper';
-import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
+import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
+import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import {gql,useMutation} from "@apollo/client";
 import {useState,useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Container from '@mui/material/Container';
 import LoggedInNavbar from './loginnavbar';
 // import CssTextField from '@mui/material/CssTextField';
 import { styled } from '@mui/material/styles';
 
 function Copyright(props) {
+  
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
       {'Copyright © '}
-      <Link color="inherit" href="http://localhost:3000/">
-        Decarbonization
+      <Link color="inherit" href="https://mui.com/">
+        Your Website
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
@@ -71,16 +71,16 @@ export default function SignIn() {
     .then(data => {
       console.log(data.data.login);
       if(data.data.login){
-        sessionStorage.setItem("email", email);
-        getuid({variables:{"email":email}})
+        window.sessionStorage.setItem("email",values.email);
+        getuid({variables:{"email":values.email}})
         .then(data =>{
           let results = data.data.userByEmail;
           results.map( result => {
+            window.sessionStorage.setItem("uid",result.uID);
             console.log(result.uID);
-            sessionStorage.setItem("uid", result.uID);
-            console.log(sessionStorage.getItem("uid"));
+          })
+          // console.log(data);
             navigate("/home");
-            })
         }
         ).catch(err => {
           navigate("/error");

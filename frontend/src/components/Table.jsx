@@ -16,9 +16,31 @@ import EditIcon from '@mui/icons-material/Edit';
 import {ApolloClient , ApolloProvider , HttpLink, InMemoryCache} from "@apollo/client";
 import {gql,useQuery,useMutation} from "@apollo/client";
 
+const output = (arg)=>{
+
+        if(arg<225)
+
+        return 'IDEAL';
+
+        else if(arg>=225 && arg<598)
+
+        return 'LOW';
+
+        else if(arg>=598 && arg<822)
+
+        return 'AVERAGE';
+
+        else
+
+        return 'HIGH';
+
+    }
+
 function createData(name, calories, fat, carbs) {
-  return { name, calories, fat, carbs };
+  let range = output(carbs);
+  return { name, calories, fat, carbs, range };
 }
+
 
 const CssTextField = styled(TextField)({
             '& label.Mui-focused': {
@@ -48,11 +70,11 @@ const CssTextField = styled(TextField)({
 });
 
 const rows = [
-  createData('Frozen yoghurt', 159, 6.0, 24),
-  createData('Ice cream sandwich', 237, 9.0, 37),
-  createData('Eclair', 262, 16.0, 24),
-  createData('Cupcake', 305, 3.7, 67),
-  createData('Gingerbread', 356, 16.0, 49),
+  createData('January', 159, 6.0, 165),
+  createData('October', 237, 200.0, 437),
+  createData('December', 262, 300.0, 562),
+  createData('April', 305, 300, 605),
+  createData('March', 356, 500, 856),
 ];
 
 
@@ -139,6 +161,7 @@ export default function DenseTable() {
             <TableCell align="center">Transport Use (C02 in kg)</TableCell>
             <TableCell align="center">Domestic Use (C02 in kg)</TableCell>
             <TableCell align="center">Total (C02 in kg)</TableCell>
+            <TableCell align="center">Range</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -153,7 +176,7 @@ export default function DenseTable() {
               <TableCell align="center">{row.calories} &nbsp; <EditIcon style={{color:'#428558',cursor:'pointer'}}/> &nbsp; <DeleteIcon style={{color:'#428558',cursor:'pointer'}}/></TableCell>
               <TableCell align="center">{row.fat} &nbsp; <EditIcon style={{color:'#428558', cursor:'pointer'}}/> &nbsp; <DeleteIcon style={{color:'#428558',cursor:'pointer'}}/>  </TableCell>
               <TableCell align="center">{row.carbs} </TableCell>
-              {/* <TableCell align="center">{row.protein}</TableCell> */}
+              <TableCell align="center">{row.range}</TableCell>
             </TableRow>
           ))}
         </TableBody>

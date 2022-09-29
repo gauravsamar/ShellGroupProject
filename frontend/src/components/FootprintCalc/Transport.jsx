@@ -98,7 +98,7 @@ export default function Transport(){
         addTransport({variables:{transport:datain}})
         .then(data => {
             console.log("User transport added");
-            navigate("/dashboard");
+            navigate("/home");
         })
         .catch(err => {
             console.log(err);

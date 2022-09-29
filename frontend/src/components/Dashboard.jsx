@@ -7,7 +7,7 @@ import { Button } from '@material-ui/core';
 import {gql,useMutation} from "@apollo/client";
 import BarGraph from './GraphBar';
 
-const GET_DOMESTIC = gql` 
+const GET_DOMESTIC = gql`
 mutation domestic($year:Int!,$uid:Int!){
     domesticFootprintByYearAndUser(year:$year,uID:$uid){
       month
@@ -574,7 +574,6 @@ console.log(err);
                     <BarGraph height="300" width="500" title="Transport" x={month} y = {JSON.parse(sessionStorage.getItem('transport_carbon1'))} name="transport"/>
                     <BarGraph height="300" width="500" title="Domestic" x={month}  y = {JSON.parse(sessionStorage.getItem('domestic_carbon1'))} name="domestic"/>
                 </div>
-                
             </div>
         </div>
     )

@@ -24,7 +24,7 @@ function Copyright(props) {
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
       {'Copyright © '}
       <Link color="inherit" href="http://localhost:3000/">
-        Decarbonization
+        Decarburization
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
@@ -61,6 +61,20 @@ export default function SignUp() {
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
+    // console.log({
+    //   email: data.get('email'),
+    //   password: data.get('password'),
+    // });
+    // let email = data.get('email');
+    // obj = {email:data.get('email'),password:data.get("password")};
+
+    // const {loading,error,dat} = useQuery(CHECK_USER, {
+    //   variables:{email}
+    // })
+
+    // return (<Dashboard email={email} />)
+    // navigate("/dashboard",{replace:true,state:{email}})
+
 
     const values = {
         "email": data.get('email'),
@@ -78,13 +92,12 @@ export default function SignUp() {
       check({variables:{user:values}})
       .then(data => {
         console.log(data.data.signup);
-        if(data.data.signup)navigate("/home");
+        if(data.data.signup)navigate("/signin");
         else{
             addUser({variables:{user:user}})
             .then(data => {
                 console.log(data);
-                // window.sessionStorage.setItem("email", values.email);
-                navigate('/signin')
+                navigate("/signin");
             })
             .catch(err => {
                 console.log(err);
@@ -97,7 +110,32 @@ export default function SignUp() {
    
 };
 
+const CssTextField = styled(TextField)({
+  '& label.Mui-focused': {
+  color: 'rgb(107, 156, 123)',
+},
+'& .MuiInput-underline:after': {
+borderBottomColor: 'rgb(107, 156, 123)',
+},
 
+'& .MuiOutlinedInput-input': {
+marginTop:'0px',
+padding: '10px 12px',
+paddingTop:'15px',
+},
+'& .MuiOutlinedInput-root': {
+'& fieldset': {
+  borderColor: 'black',
+},
+
+'&:hover fieldset': {
+  borderColor: 'rgb(107, 156, 123)',
+},
+'&.Mui-focused fieldset': {
+borderColor: 'rgb(107, 156, 123)',
+},
+},
+});
 
 
 
@@ -193,32 +231,6 @@ export default function SignUp() {
   //   </ThemeProvider>
 
   // );
-  const CssTextField = styled(TextField)({
-    '& label.Mui-focused': {
-    color: 'green',
-},
-'& .MuiInput-underline:after': {
-borderBottomColor: 'green',
-},
-
-'& .MuiOutlinedInput-input': {
-marginTop:'0px',
-padding: '10px 12px',
-paddingTop:'15px',
-},
-'& .MuiOutlinedInput-root': {
-'& fieldset': {
-    borderColor: 'black',
-},
-
-'&:hover fieldset': {
-    borderColor: 'green',
-},
-'&.Mui-focused fieldset': {
-borderColor: 'green',
-},
-},
-});
   return (
 
     <div style={{backgroundColor:"rgb(198, 235, 197)", paddingBottom:'90px'}}>
@@ -310,8 +322,5 @@ borderColor: 'green',
     </div>
   );
 }
-
-
-
 
 

@@ -107,6 +107,8 @@ namespace footprint.Data.GraphQL
                 resolve: context => userRepository.GetUser()
                 );
 
+            
+
         }
     }
 }

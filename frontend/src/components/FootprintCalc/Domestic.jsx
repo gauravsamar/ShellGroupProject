@@ -7,7 +7,7 @@ import { useState } from "react";
 import LoggedInNavbar from '../LoggedInNavbar';
 import {gql,useQuery,useMutation} from "@apollo/client";
 import {ApolloClient , ApolloProvider , HttpLink, InMemoryCache} from "@apollo/client";
-import { Navigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const CREATE_DOMESTIC = gql`
 mutation createdomestic($domestic:domesticInput!){
@@ -18,6 +18,8 @@ mutation createdomestic($domestic:domesticInput!){
 `;
 
 export default function Domestic(){
+
+    const navigate = useNavigate();
 
     const client  = new ApolloClient({
         cache : new InMemoryCache(),
@@ -32,44 +34,30 @@ export default function Domestic(){
 
     client.query({
         query: gql`
-    query get_user($email:String!) {
-      userByEmail(email:$email) {
-        uID
-      }}
+        query get_user($email:String!) {
+        userByEmail(email:$email) {
+            uID
+        }}
   
     `,
     variables: {email: email}
       }).then(result => {
+        // console.log(result.data.userByEmail[0].uID);
+        console.log(result);
         setUserid(result.data.userByEmail[0].uID);
-    });
+    }).catch(err=>console.log(err));
 
     const textStyle = {color : 'blue', margin:'10px', width:'88%', marginLeft:'40px'};
     const textStyles = {color : 'blue', margin:'10px', width:'90%'};
     const btnStyle = {background : '#428558',color:'white', margin:'10px', width:'88%', marginLeft:'40px'};
-    const [month,setMonth] = useState('');
-    const [year,setYear] = useState(2022);
+    // const [month,setMonth] = useState('');
+    // const [year,setYear] = useState(2022);
+
     // const [lpg, setlpg] = useState(0);
     // const [cng, settaxi] = useState(0);
     // const [elec, setbus] = useState(0);
-    const CssTextField = styled(TextField)({
-            '& label.Mui-focused': {
-            color: 'green',
-    },
-    '& .MuiInput-underline:after': {
-        borderBottomColor: 'green',
-    },
-    '& .MuiOutlinedInput-root': {
-        '& fieldset': {
-            borderColor: 'black',
-        },
-        '&:hover fieldset': {
-            borderColor: 'green',
-        },
-        '&.Mui-focused fieldset': {
-        borderColor: 'green',
-        },
-    },
-    });
+
+    
 
     const [addDomestic] = useMutation(CREATE_DOMESTIC);
 
@@ -86,7 +74,7 @@ export default function Domestic(){
             "electricity":data.get('electricity')
         }
 
-        const res = parseFloat(values.lpg)*1.2 + parseFloat(values.cng)*1.5 + parseFloat(values.electricity)*1.7;
+        const res = parseFloat(values.lpg)*42.5 + parseFloat(values.cng)*1.82 + parseFloat(values.electricity)*0.9;
 
         let datain = {
             "month":values.month,
@@ -97,10 +85,12 @@ export default function Domestic(){
             "carbondomestic":parseFloat(res)
 
         }
+        // uID = parseInt(uID);
         datain={uID,...datain};
         addDomestic({variables:{domestic:datain}})
         .then(data => {
             console.log("User domestic added");
+            navigate("/home");
         })
         .catch(err => {
             console.log(err);
@@ -108,6 +98,26 @@ export default function Domestic(){
 
         
     }
+
+    const CssTextField = styled(TextField)({
+        '& label.Mui-focused': {
+        color: 'green',
+    },
+    '& .MuiInput-underline:after': {
+        borderBottomColor: 'green',
+    },
+    '& .MuiOutlinedInput-root': {
+        '& fieldset': {
+            borderColor: 'black',
+        },
+        '&:hover fieldset': {
+            borderColor: 'green',
+        },
+        '&.Mui-focused fieldset': {
+        borderColor: 'green',
+        },
+    },
+    });
     return(
         <div>
             <LoggedInNavbar></LoggedInNavbar>
@@ -133,5 +143,6 @@ export default function Domestic(){
         </div>
     </div>
     </form>
-    </div>)
+    </div>
+    )
 }
