@@ -16,13 +16,14 @@ import {gql,useQuery} from "@apollo/client";
 import { Dashboard} from '@mui/icons-material';
 import {useNavigate} from "react-router-dom";
 import {useMutation} from "@apollo/client";
-
+import { styled } from '@mui/material/styles';
+import LoggedInNavbar from './loginnavbar';
 function Copyright(props) {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
       {'Copyright © '}
       <Link color="inherit" href="http://localhost:3000/">
-        Decarbonization
+        Decarburization
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
@@ -67,7 +68,21 @@ export default function SignUp() {
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    
+    // console.log({
+    //   email: data.get('email'),
+    //   password: data.get('password'),
+    // });
+    // let email = data.get('email');
+    // obj = {email:data.get('email'),password:data.get("password")};
+
+    // const {loading,error,dat} = useQuery(CHECK_USER, {
+    //   variables:{email}
+    // })
+
+    // return (<Dashboard email={email} />)
+    // navigate("/dashboard",{replace:true,state:{email}})
+
+
     const values = {
         "email": data.get('email'),
         "password": data.get('password')
@@ -84,13 +99,11 @@ export default function SignUp() {
       check({variables:{user:values}})
       .then(data => {
         console.log(data.data.signup);
-        if(data.data.signup)navigate("/home");
+        if(data.data.signup)navigate("/dashboard");
         else{
             addUser({variables:{user:user}})
             .then(data => {
                 console.log(data);
-                // window.sessionStorage.setItem("email", values.email);
-                navigate('/signin')
             })
             .catch(err => {
                 console.log(err);
@@ -103,7 +116,32 @@ export default function SignUp() {
    
 };
 
+const CssTextField = styled(TextField)({
+  '& label.Mui-focused': {
+  color: 'rgb(107, 156, 123)',
+},
+'& .MuiInput-underline:after': {
+borderBottomColor: 'rgb(107, 156, 123)',
+},
 
+'& .MuiOutlinedInput-input': {
+marginTop:'0px',
+padding: '10px 12px',
+paddingTop:'15px',
+},
+'& .MuiOutlinedInput-root': {
+'& fieldset': {
+  borderColor: 'black',
+},
+
+'&:hover fieldset': {
+  borderColor: 'rgb(107, 156, 123)',
+},
+'&.Mui-focused fieldset': {
+borderColor: 'rgb(107, 156, 123)',
+},
+},
+});
 
 
 
@@ -114,7 +152,8 @@ export default function SignUp() {
 
   return (
 
-    
+    <div style={{backgroundColor:"rgb(198, 235, 197)", paddingBottom:'90px'}}>
+      <LoggedInNavbar></LoggedInNavbar>
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
         <CssBaseline />
@@ -126,7 +165,7 @@ export default function SignUp() {
             alignItems: 'center',
           }}
         >
-          <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+          <Avatar sx={{ m: 1, bgcolor: 'rgb(107, 156, 123)' }}>
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
@@ -135,7 +174,7 @@ export default function SignUp() {
           <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6}>
-                <TextField
+                <CssTextField
                   autoComplete="given-name"
                   name="firstName"
                   required
@@ -146,7 +185,7 @@ export default function SignUp() {
                 />
               </Grid>
               <Grid item xs={12} sm={6}>
-                <TextField
+                <CssTextField
                   required
                   fullWidth
                   id="lastName"
@@ -156,17 +195,18 @@ export default function SignUp() {
                 />
               </Grid>
               <Grid item xs={12}>
-                <TextField
+                <CssTextField
                   required
                   fullWidths
                   id="email"
                   label="Email Address"
                   name="email"
                   autoComplete="email"
+                  style={{    width: '30rem'}}
                 />
               </Grid>
               <Grid item xs={12}>
-                <TextField
+                <CssTextField
                   required
                   fullWidth
                   name="password"
@@ -182,26 +222,24 @@ export default function SignUp() {
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
+              style={{backgroundColor:"rgb(107, 156, 123)"}}
             >
               Sign Up
             </Button>
             <Grid container justifyContent="flex-end">
               <Grid item>
-                <Link href="http://localhost:3000/signin" variant="body2">
+                <Link href="http://localhost:3000/signin" variant="body2" style={{color:"rgb(107, 156, 123)"}}>
                   Already have an account? Sign in
                 </Link>
               </Grid>
             </Grid>
           </Box>
         </Box>
-        <Copyright sx={{ mt: 5 }} />
+       
       </Container>
     </ThemeProvider>
-
+    </div>
   );
 }
-
-
-
 
 

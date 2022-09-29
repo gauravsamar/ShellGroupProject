@@ -10,7 +10,7 @@ export default function LoggedInNavbar(){
         <Container>
           <img src={pic2} style={{width:'40px', height:'40px', marginRight:'30px'}} />
 
-          <Navbar.Brand href="#home">Carbon Footprint Calculator</Navbar.Brand>
+          <Navbar.Brand href="#home">Carbon Watch</Navbar.Brand>
           <Nav className="me-auto">
             
             <Nav.Link style={{marginLeft:'200px', fontSize:'20px' }} href="./Home"><b>Home</b></Nav.Link>

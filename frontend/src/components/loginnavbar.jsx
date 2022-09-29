@@ -13,15 +13,18 @@ export default function LoggedInNavbar(){
         <Container>
           <img src={pic2} style={{width:'40px', height:'40px', marginRight:'30px'}} />
 
-          <Navbar.Brand href="#home">Carbon Footprint Calculator</Navbar.Brand>
+          <Navbar.Brand href="#home">Carbon Watch</Navbar.Brand>
           <Nav className="me-auto">
             
-            <Nav.Link style={{marginLeft:'150px', fontSize:'20px' }} href="/"><b>Home</b></Nav.Link>
+            <Nav.Link style={{marginLeft:'150px', fontSize:'20px' }} href="./Home"><b>Home</b></Nav.Link>
             <Nav.Link style={{marginLeft:'50px',  fontSize:'20px' }} href="./About"><b>About</b></Nav.Link>
-            <Nav.Link  style={{marginLeft:'50px',  fontSize:'20px', marginRight:'100px' }} href="./Goals"><b>Goals</b></Nav.Link>
-            <Button  variant="light" href="/signin">Sign In</Button>{' '}
-            &nbsp;&nbsp;&nbsp;&nbsp;
-            <Button  variant="dark" href="/signup">Sign Up</Button>  
+            <Nav.Link  style={{marginLeft:'50px',  fontSize:'20px', marginRight:'180px' }} href="./Goals"><b>Goals</b></Nav.Link>
+            <Button  variant="light">Sign In</Button>{' '}
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <Button  variant="dark">Sign Up</Button> 
+
+
+ 
           </Nav>
         </Container>
       </Navbar>
