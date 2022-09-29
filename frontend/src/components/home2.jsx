@@ -21,7 +21,7 @@ function Home2() {
         <Card.Text>
          Calculate your Transportation Carbon Footprint.
         </Card.Text>
-        <Button style={{backgroundColor:'rgb(107, 156, 123)',borderColor:'Green'}}variant="primary">Calculate</Button>
+        <Button style={{backgroundColor:'rgb(107, 156, 123)',borderColor:'Green'}}variant="primary" href="/transport">Calculate</Button>
       </Card.Body>
     </Card>
         </div>
@@ -35,7 +35,7 @@ function Home2() {
         <Card.Text>
         Calculate your Domestic Carbon Footprint below.
         </Card.Text>
-        <Button style={{backgroundColor:'rgb(107, 156, 123)', borderColor:'Green'}} variant="primary">Calculate</Button>
+        <Button style={{backgroundColor:'rgb(107, 156, 123)', borderColor:'Green'}} variant="primary" href="/domestic">Calculate</Button>
       </Card.Body>
     
     </Card>

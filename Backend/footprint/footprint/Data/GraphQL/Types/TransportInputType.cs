@@ -19,6 +19,7 @@ namespace footprint.Data.GraphQL.Types
             Field<NonNullGraphType<FloatGraphType>>("lpg");
             Field<NonNullGraphType<FloatGraphType>>("bus");
             Field<NonNullGraphType<FloatGraphType>>("train");
+            Field<NonNullGraphType<IntGraphType>>("uID");
             Field<NonNullGraphType<FloatGraphType>>("autorickshaw");
             Field<NonNullGraphType<FloatGraphType>>("carbontransport");
 

@@ -22,7 +22,7 @@ function Copyright(props) {
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
       {'Copyright © '}
       <Link color="inherit" href="http://localhost:3000/">
-        Decarburization
+        Decarbonization
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
@@ -67,21 +67,7 @@ export default function SignUp() {
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    // console.log({
-    //   email: data.get('email'),
-    //   password: data.get('password'),
-    // });
-    // let email = data.get('email');
-    // obj = {email:data.get('email'),password:data.get("password")};
-
-    // const {loading,error,dat} = useQuery(CHECK_USER, {
-    //   variables:{email}
-    // })
-
-    // return (<Dashboard email={email} />)
-    // navigate("/dashboard",{replace:true,state:{email}})
-
-
+    
     const values = {
         "email": data.get('email'),
         "password": data.get('password')
@@ -98,11 +84,13 @@ export default function SignUp() {
       check({variables:{user:values}})
       .then(data => {
         console.log(data.data.signup);
-        if(data.data.signup)navigate("/dashboard");
+        if(data.data.signup)navigate("/home");
         else{
             addUser({variables:{user:user}})
             .then(data => {
                 console.log(data);
+                // window.sessionStorage.setItem("email", values.email);
+                navigate('/signin')
             })
             .catch(err => {
                 console.log(err);
@@ -212,5 +200,8 @@ export default function SignUp() {
 
   );
 }
+
+
+
 
 

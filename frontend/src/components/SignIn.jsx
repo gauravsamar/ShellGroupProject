@@ -22,7 +22,7 @@ function Copyright(props) {
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
       {'Copyright © '}
       <Link color="inherit" href="http://localhost:3000/">
-        Decarburization
+        Decarbonization
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
@@ -62,9 +62,7 @@ const [email, setemail] = useState('');
       console.log(data.data.login);
       if(data.data.login){
         window.sessionStorage.setItem("email", email);
-        // console.log(window.sessionStorage.getItem("email"));
-        navigate("/");
-        
+        navigate("/home");
       }else{
         
       }
@@ -159,4 +157,4 @@ const [email, setemail] = useState('');
       </Grid>
     </ThemeProvider>
   );
-}
+} 

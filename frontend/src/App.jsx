@@ -8,6 +8,9 @@ import Dashboard from "./components/Dashboard";
 import About from "./components/About";
 import Home from "./components/Home";
 import Goals from "./components/Goals";
+import Domestic from "./components/FootprintCalc/Domestic";
+import Transport from "./components/FootprintCalc/Transport";
+import Home2 from "./components/home2";
 
 import {Routes, Route, BrowserRouter as Router} from "react-router-dom";
 import {ApolloClient , ApolloProvider , HttpLink, InMemoryCache} from "@apollo/client";
@@ -29,13 +32,15 @@ function AppRouter(){
       <Router>
         <Routes>
           
-          <Route exact path="/" element={<Landing/>} />
+          <Route exact path="/" element={<Home/>} />
           <Route path="/signin" element={<SignIn/>} />
           <Route path="/signup" element={<SignUp/>} />
           <Route path="/about" element={<About/>} />
-          <Route path="/home" element={<Home/>} />
           <Route path="/goal" element={<Goals/>} />
           <Route path="*" element = {<Error/>} />
+          <Route path="/domestic" element={<Domestic/>}/>
+          <Route path="/transport" element={<Transport/>}/>
+          <Route path="/home"  element={<Home2/>}/>
          
         </Routes>
       </Router>
