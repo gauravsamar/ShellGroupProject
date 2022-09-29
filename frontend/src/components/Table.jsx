@@ -87,8 +87,8 @@ export default function DenseTable() {
               <TableCell component="th" scope="row">
                 {row.name}
               </TableCell>
-              <TableCell align="center">{row.calories} &nbsp; <DeleteIcon style={{color:'#428558',cursor:'pointer'}}/> &nbsp; <EditIcon style={{color:'#428558',cursor:'pointer'}}/></TableCell>
-              <TableCell align="center">{row.fat} &nbsp; <DeleteIcon style={{color:'#428558',cursor:'pointer'}}/> &nbsp; <EditIcon style={{color:'#428558', cursor:'pointer'}}/> </TableCell>
+              <TableCell align="center">{row.calories} &nbsp; <EditIcon style={{color:'#428558',cursor:'pointer'}}/> &nbsp; <DeleteIcon style={{color:'#428558',cursor:'pointer'}}/></TableCell>
+              <TableCell align="center">{row.fat} &nbsp; <EditIcon style={{color:'#428558', cursor:'pointer'}}/> &nbsp; <DeleteIcon style={{color:'#428558',cursor:'pointer'}}/>  </TableCell>
               <TableCell align="center">{row.carbs} </TableCell>
               {/* <TableCell align="center">{row.protein}</TableCell> */}
             </TableRow>
