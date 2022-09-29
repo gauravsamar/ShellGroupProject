@@ -86,7 +86,7 @@ export default function Domestic(){
             "electricity":data.get('electricity')
         }
 
-        const res = parseFloat(values.lpg)*1.2 + parseFloat(values.cng)*1.5 + parseFloat(values.electricity)*1.7;
+        const res = parseFloat(values.lpg)*42.5 + parseFloat(values.cng)*1.82 + parseFloat(values.electricity)*0.9;
 
         let datain = {
             "month":values.month,
