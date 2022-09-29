@@ -18,12 +18,13 @@ import Transport from './components/FootprintCalc/Transport';
 import Domestic from './components/FootprintCalc/Domestic';
 import About from './components/About';
 import Goals from './components/Goals';
+import DenseTable  from './components/Table';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <CookiesProvider>
   <React.StrictMode>
-    <DenseTable/>
+    <App/>
   </React.StrictMode>
   </CookiesProvider>
 );

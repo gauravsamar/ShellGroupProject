@@ -11,10 +11,12 @@ import Goals from "./components/Goals";
 import Domestic from "./components/FootprintCalc/Domestic";
 import Transport from "./components/FootprintCalc/Transport";
 import Home2 from "./components/home2";
+import DenseTable from './components/Table';
 
 import {Routes, Route, BrowserRouter as Router} from "react-router-dom";
 import {ApolloClient , ApolloProvider , HttpLink, InMemoryCache} from "@apollo/client";
 import Userfetchsample from './components/Userfetchsample';
+
 
 //Initializing apollo client
 const client  = new ApolloClient({
@@ -41,6 +43,7 @@ function AppRouter(){
           <Route path="/domestic" element={<Domestic/>}/>
           <Route path="/transport" element={<Transport/>}/>
           <Route path="/home"  element={<Home2/>}/>
+          <Route path="/table" element={<DenseTable/>}/>
          
         </Routes>
       </Router>
